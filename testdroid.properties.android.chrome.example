@@ -1,0 +1,13 @@
+#
+# Example properties for Android Chrome test
+#
+# Copy this file to testdroid.properties, change your email and password
+#
+# After that run: 
+#
+# mvn -Dtest=ChromeTest clean test
+#
+testdroid.username=yourname@example.com
+testdroid.password=changeme
+testdroid.project=Appium Android Chrome Test
+testdroid.device=Asus Google Nexus 7 ME370T 4.4.2

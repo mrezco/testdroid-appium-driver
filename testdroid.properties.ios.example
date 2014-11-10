@@ -1,0 +1,13 @@
+#
+# Example properties for iOS application test
+#
+# Copy this file to testdroid.properties, change your email and password
+#
+# After that run: 
+#
+# mvn -Dtest=BitbarIOSSampleTest clean test
+#
+testdroid.username=yourname@example.com
+testdroid.password=changeme
+testdroid.device=iPad 3 A1416 7.0.4
+testdroid.project=Appium iOS Test
