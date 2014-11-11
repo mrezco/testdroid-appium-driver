@@ -88,7 +88,8 @@ public class TestdroidAppiumClient {
 
     private ScreenshotDisplay screenshotDisplay = null;
 
-    private int deviceWaitTime = 120;
+    private int deviceWaitTime = 120; //Optional, sets time to wait when device is in use, use 0 for no wait time
+    private boolean signAppFile = true; //Optional, if set to false app file will not be resigned
 
     // Testdroid runtime properties
 
@@ -267,6 +268,11 @@ public class TestdroidAppiumClient {
     }
 
     public void setDeviceWaitTime(int secs) { this.deviceWaitTime = secs; }
+
+    public void setSignAppFile(boolean sign) {
+        this.signAppFile = sign;
+    }
+
     /**
      * Set Testdroid Cloud project name. Will be automatically created in cloud if does not exist.
      */
@@ -320,6 +326,10 @@ public class TestdroidAppiumClient {
 
     public String getDeviceName() {
         return deviceName;
+    }
+
+    public boolean getSignAppFile() {
+        return signAppFile;
     }
 
     /**
@@ -476,6 +486,7 @@ public class TestdroidAppiumClient {
         }
 
         capabilities.setCapability("automationName", automationName);
+        capabilities.setCapability("noSign", !signAppFile);
 
         if (appFile == null && fileUUID == null) {
             throw new Exception("Provide either appFile or fileUUID");
@@ -511,7 +522,6 @@ public class TestdroidAppiumClient {
 
             logger.info("Project: {}", projectName);
             logger.info("Test run: {}", finalTestRunName);
-
             capabilities.setCapability("testdroid_project", projectName);
             capabilities.setCapability("testdroid_description", testdroidDescription);
             capabilities.setCapability("testdroid_testrun", finalTestRunName);
