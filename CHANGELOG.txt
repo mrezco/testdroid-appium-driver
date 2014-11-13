@@ -1,0 +1,5 @@
+
+CHANGES IN VERSION 1.1.1 (from 1.1.0)
+======================================
+
+* Possibility to set noSign capability with setSignApp-method
