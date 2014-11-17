@@ -159,7 +159,7 @@ public class TestdroidAppiumClient {
 
         String sAppiumUploadUrl = getProperty(TESTDROID_APPIUM_UPLOAD_URL);
         if(sAppiumUploadUrl != null) {
-            appiumUploadUrl = new URL(sAppiumUrl);
+            appiumUploadUrl = new URL(sAppiumUploadUrl);
         } else {
             appiumUploadUrl = new URL(APPIUM_UPLOAD_URL);
         }
