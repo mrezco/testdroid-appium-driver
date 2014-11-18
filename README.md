@@ -43,15 +43,15 @@ TODO
 
 ### iOS application with Testdroid Cloud
 
-Copy testdroid.properties.sample to testdroid.properties, edit the username etc.
+Copy testdroid.properties.ios.example to testdroid.properties, edit the username etc.
 
 Run test using device in properties
 
 ```
-mvn -Dtest=BitbarSampleAppTest test
+mvn -Dtest=BitbarIOSSampleTest test
 ```
 
-Run test without editing testdroid.properties
+Run test on particular device without editing testdroid.properties
 
 ```
 mvn -Dtestdroid.device="iPad Air A1474 7.0.3" -Dtest=BitbarIOSSampleTest test
@@ -59,11 +59,21 @@ mvn -Dtestdroid.device="iPad Air A1474 7.0.3" -Dtest=BitbarIOSSampleTest test
 
 ### Android application with Testdroid Cloud
 
-TODO
+Copy testdroid.properties.android.example to testdroid.properties, edit the username etc.
+
+There is one example test for two different applications (BitbarSampleAppTest and TestdroidTest).
+
+```
+mvn -Dtest=BitbarSampleAppTest test
+```
 
 ### Chrome test on Android with Testdroid Cloud
 
+Copy testdroid.properties.android.chrome.example to testdroid.properties, edit the username etc.
 
+```
+mvn -Dtest=ChromeTest test
+```
 
 ### Local iOS
 
@@ -81,11 +91,17 @@ mvn -Dtest=BitbarIOSSampleTest -Dtestdroid.appiumUrl=http://localhost:4723/wd/hu
 
 ### Local Android
 
-TODO
+Start Appium
 
-### Local Chrome test on Android device
+```
+node ./appium.js --platform-name=Android --device-name=AndroidDevice --app=/path/to/apk/Testdroid.apk --app-activity=".MM_MainMenu"
+```
 
-TODO
+Execute test
+
+```
+mvn -Dtest=TestdroidTest -Dtestdroid.appiumUrl=http://localhost:4723/wd/hub
+```
 
 ## Notes
 
