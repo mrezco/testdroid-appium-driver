@@ -38,6 +38,9 @@ public class BitbarIOSSampleTest {
         client.setBundleId(BUNDLE_ID);
         client.setPlatformName(TestdroidAppiumClient.APPIUM_PLATFORM_IOS);
         client.setTestdroidTarget(TestdroidAppiumClient.TESTDROID_TARGET_IOS);
+        // Wait one hour for free device
+        client.setDeviceWaitTime(3600);
+
         wd = client.getDriver();
     }
 

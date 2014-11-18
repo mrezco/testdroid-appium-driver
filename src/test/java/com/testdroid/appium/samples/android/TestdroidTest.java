@@ -46,8 +46,8 @@ public class TestdroidTest {
         client.setAndroidActivity(ANDROID_ACTIVITY);
         client.setPlatformName(TestdroidAppiumClient.APPIUM_PLATFORM_ANDROID);
         client.setTestdroidTarget(TestdroidAppiumClient.TESTDROID_TARGET_ANDROID);
-        // Wait 10 min for free device
-        client.setDeviceWaitTime(600);
+        // Wait one hour for free device
+        client.setDeviceWaitTime(3600);
 
         wd = client.getDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
