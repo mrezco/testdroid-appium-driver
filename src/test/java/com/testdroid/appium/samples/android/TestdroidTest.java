@@ -61,24 +61,32 @@ public class TestdroidTest {
     public void mainPageTest() throws IOException, InterruptedException {
         int i = 1;
         Thread.sleep(200); // Wait a bit to make sure the main activity is ready
+
+        // Make this test work with older API levels. If you know you don't run your tests on older devices, this
+        // is not needed.
+        String xpathPrefix = "";
+        if (!client.getTestdroidTarget().equals(TestdroidAppiumClient.TESTDROID_TARGET_SELENDROID)) {
+            xpathPrefix = "android.widget.ScrollView[1]//android.widget.";
+        }
+
         screenshot("screenshot-" + i++ + "-MainMenu1.png");
         // Native Activity
-        wd.findElement(By.xpath("//android.widget.ScrollView[1]//android.widget.Button[1]")).click();
+        wd.findElement(By.xpath("//" + xpathPrefix + "Button[1]")).click();
         Thread.sleep(200); // Wait a bit to for animation
         screenshot("screenshot-" + i++ + "-NativeActivity.png");
         wd.navigate().back();
         // Hybrid Activity
-        wd.findElement(By.xpath("//android.widget.ScrollView[1]//android.widget.Button[2]")).click();
+        wd.findElement(By.xpath("//" + xpathPrefix + "Button[1]")).click();
         Thread.sleep(1000); // Wait a bit to for animation and webpage
         screenshot("screenshot-" + i++ + "-HybridActivity.png");
         wd.navigate().back();
         // Function
-        wd.findElement(By.xpath("//android.widget.ScrollView[1]//android.widget.Button[4]")).click();
+        wd.findElement(By.xpath("//" + xpathPrefix + "Button[1]")).click();
         Thread.sleep(200); // Wait a bit to for animation
         screenshot("screenshot-" + i++ + "-Functions.png");
         wd.navigate().back();
         // Device Info
-        wd.findElement(By.xpath("//android.widget.ScrollView[1]//android.widget.Button[5]")).click();
+        wd.findElement(By.xpath("//" + xpathPrefix + "Button[1]")).click();
         Thread.sleep(200); // Wait a bit to for animation
         screenshot("screenshot-" + i++ + "-DeviceInfo.png");
         wd.navigate().back();
