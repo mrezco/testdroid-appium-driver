@@ -45,7 +45,6 @@ public class TestdroidTest {
         client.setAndroidPackage(ANDROID_PACKAGE);
         client.setAndroidActivity(ANDROID_ACTIVITY);
         client.setPlatformName(TestdroidAppiumClient.APPIUM_PLATFORM_ANDROID);
-        client.setTestdroidTarget(TestdroidAppiumClient.TESTDROID_TARGET_ANDROID);
         // Wait one hour for free device
         client.setDeviceWaitTime(3600);
 
