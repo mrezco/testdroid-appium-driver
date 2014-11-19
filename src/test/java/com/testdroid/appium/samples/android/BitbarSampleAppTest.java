@@ -55,7 +55,7 @@ public class BitbarSampleAppTest {
     @Test
     public void mainPageTest() throws IOException, InterruptedException {
         screenshot("1.png");
-        if (client.getTestdroidTarget()== TestdroidAppiumClient.TESTDROID_TARGET_SELENDROID) {
+        if (client.getTestdroidTarget().equals(TestdroidAppiumClient.TESTDROID_TARGET_SELENDROID)) {
             wd.findElement(By.xpath("//RadioButton[2]")).click();
             screenshot("2.png");
             wd.findElement(By.xpath("//EditText[1]")).sendKeys("John Doe");
