@@ -1,4 +1,12 @@
 
+1.1.3
+=====
+* Possibility to automatically detect platformName and testdroidTarget from API device information
+* Android and iOS samples updated to use automatic detection of platformName and testdroidTarget
+* Android sample updated to include sample code when using Selendroid (Android devices with API 16 and lower)
+* Wait one hour for free device in each example
+* Add example for Testdroid application
+
 1.1.2
 =====
 * Appium upload URL bug fix

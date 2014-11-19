@@ -40,8 +40,8 @@ public class BitbarSampleAppTest {
         client.setAppFile(new File(SAMPLE_APP_PATH));
         client.setAndroidPackage(ANDROID_PACKAGE);
         client.setAndroidActivity(ANDROID_ACTIVITY);
-        client.setPlatformName(TestdroidAppiumClient.APPIUM_PLATFORM_ANDROID);
-        client.setTestdroidTarget(TestdroidAppiumClient.TESTDROID_TARGET_ANDROID);
+        // Wait one hour for free device
+        client.setDeviceWaitTime(3600);
 
         wd = client.getDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -55,12 +55,22 @@ public class BitbarSampleAppTest {
     @Test
     public void mainPageTest() throws IOException, InterruptedException {
         screenshot("1.png");
-        wd.findElement(By.xpath("//android.widget.RadioButton[2]")).click();
-        screenshot("2.png");
-        wd.findElement(By.xpath("//android.widget.EditText[1]")).sendKeys("John Doe");
-        screenshot("3.png");
-        wd.navigate().back();
-        wd.findElement(By.xpath("//android.widget.Button[1]")).click();
+        if (client.getTestdroidTarget().equals(TestdroidAppiumClient.TESTDROID_TARGET_SELENDROID)) {
+            wd.findElement(By.xpath("//RadioButton[2]")).click();
+            screenshot("2.png");
+            wd.findElement(By.xpath("//EditText[1]")).sendKeys("John Doe");
+            screenshot("3.png");
+            wd.navigate().back();
+            wd.findElement(By.xpath("//Button[1]")).click();
+        }
+        else {
+            wd.findElement(By.xpath("//android.widget.RadioButton[2]")).click();
+            screenshot("2.png");
+            wd.findElement(By.xpath("//android.widget.EditText[1]")).sendKeys("John Doe");
+            screenshot("3.png");
+            wd.navigate().back();
+            wd.findElement(By.xpath("//android.widget.Button[1]")).click();
+        }
         screenshot("4.png");
     }
 
