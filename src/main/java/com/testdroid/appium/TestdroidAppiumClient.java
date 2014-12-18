@@ -475,10 +475,10 @@ public class TestdroidAppiumClient {
         }
         // Android
         if(StringUtils.isNotEmpty(androidPackage)) {
-            capabilities.setCapability("app-package", androidPackage);
+            capabilities.setCapability("appPackage", androidPackage);
         }
         if(StringUtils.isNotEmpty(androidActivity)) {
-            capabilities.setCapability("app-activity", androidActivity);
+            capabilities.setCapability("appActivity", androidActivity);
         }
         // Browser
         if(StringUtils.isNotEmpty(browserName)) {
