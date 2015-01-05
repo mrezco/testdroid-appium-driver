@@ -6,6 +6,7 @@
 * Android sample updated to include sample code when using Selendroid (Android devices with API 16 and lower)
 * Wait one hour for free device in each example
 * Add example for Testdroid application
+* Fix appPackage and appActivity capabilities names
 
 1.1.2
 =====
