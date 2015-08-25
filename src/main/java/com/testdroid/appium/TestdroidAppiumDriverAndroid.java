@@ -1,7 +1,9 @@
 package com.testdroid.appium;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.android.AndroidDriver;
+
+import java.io.File;
+import java.net.URL;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -11,9 +13,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteTouchScreen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.File;
-import java.net.URL;
 
 /**
  * Testdroid Appium driver
@@ -27,7 +26,7 @@ import java.net.URL;
  * @author Henri Kivelä <henri.kivela@bitbar.com>
  */
 
-public class TestdroidAppiumDriverAndroid extends IOSDriver implements HasTouchScreen {
+public class TestdroidAppiumDriverAndroid extends AndroidDriver implements HasTouchScreen {
 
     public static final String CAPABILITY_TESTDROID_USERNAME = "testdroid_username";
     public static final String CAPABILITY_TESTDROID_PASSWORD = "testdroid_password";
